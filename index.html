@@ -227,11 +227,13 @@ function checkoutMessenger() {
 
   message += `\n🔢 Total Items: ${document.getElementById('grandTotal').innerText}`;
 
-  let page = 'mevieling'; // IMPORTANT
-  let url = `https://m.me/${page}?ref=${encodeURIComponent(message)}`;
-
-  window.open(url, '_blank');
-
+ // let page = 'mevieling'; // IMPORTANT
+ // let url = `https://m.me/${page}?ref=${encodeURIComponent(message)}`;
+    
+    let page = 'mevieling';
+    let url = `https://m.me/${page}`;
+    window.open(url, '_blank');
+    alert(message);
   closeModal();
 }
 
