@@ -459,10 +459,13 @@ background: linear-gradient(45deg, #5a2d0c, #a65a1f, #f4c542, #3a7d2b);
     }
 }
 
-@media screen and (max-width: 600px){
+/* MOBILE VIEW */
+@media screen and (max-width: 600px) {
+
   .h_line {
-    opacity: 0;
+    display: none;   /* removes the horizontal line */
   }
+
 }
 /* Responsive adjustments */
 @media screen and (max-width: 500px) {
