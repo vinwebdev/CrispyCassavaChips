@@ -425,7 +425,15 @@ input
   .container {
     height: auto;
   }
+.card-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .card {
+    width: 75%;
+    margin: 1.5rem 0;
+  }
   .Logo-main {
     width: 8rem;
     height: 8rem;
