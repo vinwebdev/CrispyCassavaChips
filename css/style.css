@@ -428,7 +428,6 @@ input
 }
 /* 📱 Extra small screens (below 480px) */
 @media (max-width: 480px) {
-
   .container {
     height: auto;
   }
@@ -436,7 +435,6 @@ input
     flex-direction: column;
     align-items: center;
   }
-
   .card {
     width: 75%;
     margin: 1.5rem 0;
@@ -445,7 +443,6 @@ input
     width: 10rem;
     height: 10rem;
   }
-
   .header-bar {
     height: 15px;
     top: 150px;
@@ -457,26 +454,21 @@ input
     align-items: center;       /* vertical center */
     height: 25vh;             /* full screen height */  
   }
-
   .flavor_name {
     font-size: 1.8rem;
   }
-
   .btn {
     padding: 10px 20px;
     font-size: 12px;
   }
-
   .btn_checkout {
     font-size: 18px;
   }
-
   .order_table th, 
   .order_table td {
     font-size: 12px;
     padding: 6px;
   }
-
   .modal-content {
     width: 95%;
     margin: 10% auto;
