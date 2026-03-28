@@ -108,6 +108,13 @@ body{
     background: linear-gradient(to right, #5a2d0c, #f4c542);
     border-radius: 10px;
   }
+.about 
+  {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 2rem;
+    color: #555;
+  }
 .btn 
   {
     margin-top: 10px;
