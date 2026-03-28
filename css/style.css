@@ -443,6 +443,13 @@ input
     height: 15px;
     top: 90px;
   }
+ .logo-container 
+  {
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center */
+    height: 25vh;             /* full screen height */  
+  }
 
   .flavor_name {
     font-size: 1.8rem;
