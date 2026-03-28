@@ -435,13 +435,13 @@ input
     margin: 1.5rem 0;
   }
   .Logo-main {
-    width: 9rem;
-    height: 9rem;
+    width: 10rem;
+    height: 10rem;
   }
 
   .header-bar {
     height: 15px;
-    top: 90px;
+    top: 100px;
   }
  .logo-container 
   {
