@@ -84,12 +84,12 @@ body{
   }
 .flavor-img 
   {
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
     border-radius: 50%;
     margin-top: -6rem;
-    border: 5px solid #fff;
+    border: .5px #ac2626;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
 .flavor_name 
