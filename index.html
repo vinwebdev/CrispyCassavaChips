@@ -12,7 +12,6 @@
         <div class="container">            
             <div class="logo-container">
                 <div class="header-bar"></div>
-               <!-- <h1 class="heading">Elena's Crispy Cassava Chips</h1> -->
                 <img src="/CrispyCassavaChips/image/Elenas_Cassava_Chips_Logo.png" alt="profile image" class="Logo-main">
             </div>
             <div class="card-wrapper">
@@ -26,7 +25,6 @@
                      <hr class="h_line">
                     <button class="btn" onclick="addToCart('Sour Cream')">Add to Order List</button>                    
                 </div>
-
                 <div class="card">
                     <img src="/CrispyCassavaChips/image/bg-CheeseFlavor.png" alt="card background" class="card-img">
                     <img src="/CrispyCassavaChips/image/Logo-Cheese.png" alt="profile image" class="flavor-img">
@@ -37,7 +35,6 @@
                      <hr class="h_line">                  
                     <button class="btn" onclick="addToCart('Cheese')">Add to Order List</button>
                 </div>
-
                 <div class="card">
                     <img src="/CrispyCassavaChips/image/bg-BBQFlavor.png" alt="card background" class="card-img">
                     <img src="/CrispyCassavaChips/image/Logo-BBQ.png" alt="profile image" class="flavor-img">
@@ -49,9 +46,7 @@
                     <button class="btn" onclick="addToCart('BBQ')">Add to Order List</button>                
                 </div>
             </div>
-    
             <h2 class="O_list">Order List</h2>
-          
                 <div class="table-container">
                     <table class="order_table">
                         <thead>
@@ -59,7 +54,6 @@
                                 <th>Flavor</th>
                                 <th>Qty</th>
                                 <th>Action</th>
-                               
                             </tr>
                         </thead>
                         <tbody id="cartTable"></tbody>
@@ -68,18 +62,14 @@
            ,<!-- MODAL PART-->
                 <div id="checkoutModal" class="modal">
                     <div class="modal-content">
-
                         <span class="close-btn" onclick="closeModal()">&times;</span>
-
                         <h2>🛒 Checkout Order</h2>
-
                         <!-- Customer Info -->
                         <div class="form-group">
                         <input type="text" id="name" placeholder="Full Name">
                         <input type="text" id="phone" placeholder="Phone Number">
                         <input type="text" id="address" placeholder="Delivery Address">
                         </div>
-
                         <!-- Order Summary -->
                         <div class="order-summary">
                         <h3>Order Summary</h3>
@@ -88,30 +78,23 @@
                             Total Items: <span id="summaryTotal">0</span>
                         </p>
                         </div>
-
                         <!-- Buttons -->
                         <div class="modal-actions">
-                       
                         <button class="btn_checkout" onclick="checkoutMessenger()">Confirm & Send Order</button>
                         </div>
-
                     </div>
                 </div>
-
                 <div class="total_checkoutbtn">
                     <h3>Total Quantity: <span id="grandTotal">0</span></h3>
                     <button class="btn_checkout" onclick="openModal()">Checkout via Messenger</button>
                    <!-- <button class="btn_checkout" onclick="checkoutMessenger()">Checkout via Messenger</button>
                    -->
                 </div>
-
 <script>
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 function saveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
-
 function addToCart(flavor) {
   let item = cart.find(i => i.flavor === flavor);
   if (item) {
@@ -122,13 +105,11 @@ function addToCart(flavor) {
   saveCart();
   renderCart();
 }
-
 function increaseQty(index) {
   cart[index].qty += 1;
   saveCart();
   renderCart();
 }
-
 function decreaseQty(index) {
   if (cart[index].qty > 1) {
     cart[index].qty -= 1;
@@ -138,21 +119,17 @@ function decreaseQty(index) {
   saveCart();
   renderCart();
 }
-
 function removeItem(index) {
   cart.splice(index, 1);
   saveCart();
   renderCart();
 }
-
 function renderCart() {
   let table = document.getElementById('cartTable');
   table.innerHTML = '';
   let totalQty = 0; // total quantity counter
-
   cart.forEach((item, index) => {
     totalQty += item.qty;
-
     table.innerHTML += `<tr>
       <td>${item.flavor}</td>
       <td>
@@ -163,28 +140,21 @@ function renderCart() {
       <td><button class='remove-btn' onclick='removeItem(${index})'>🗑</button></td>
     </tr>`;
   });
-
   document.getElementById('grandTotal').innerText = totalQty;
 }
-
 // Open Modal Function //
-
 function openModal() {
   if (cart.length === 0) {
     alert("Your cart is empty!");
     return;
   }
-
   document.getElementById("checkoutModal").style.display = "block";
   loadSummary();
 }
-
 function closeModal() {
   document.getElementById("checkoutModal").style.display = "none";
 }
-
 // Load Summary Order //
-
 function loadSummary() {
   let list = document.getElementById("summaryList");
   let total = 0;
