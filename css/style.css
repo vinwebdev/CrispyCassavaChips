@@ -79,13 +79,14 @@ body{
     width: 100%;
     height: 20rem;
     object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 .flavor-img 
   {
     width: 10rem;
     height: 10rem;
+    max-with: 80%;
     object-fit: cover;
     border-radius: 50%;
     margin-top: -6rem;
