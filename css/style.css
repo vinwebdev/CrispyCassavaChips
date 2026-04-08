@@ -530,12 +530,34 @@ button:hover{
     width: 95%;
     margin: 10% auto;
   }
+/*
 .floating-order-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-  /*  padding: 15px 15px;*/
+    padding: 15px 15px;
     border-radius: 50%;
+}
+*/
+    .floating-order-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #0084ff, #00c6ff);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 1.8s infinite;
 }
 /*
     .floating-order-btn {   /* For Floating Order 
