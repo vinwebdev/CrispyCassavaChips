@@ -534,6 +534,7 @@ button:hover{
     .floating-order-btn {   /* For Floating Order */
         padding: 14px;
         border-radius: 50%;
+        width: Auto;
     }
     .floating-order-btn span {
     display: inline-block;
