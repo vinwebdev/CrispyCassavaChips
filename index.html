@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena's Crispy Cassava Chips</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="/Vin/Project_CassavaChips - Final/css/style.css">
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+</head>
+<body>
+<div class="container">  
+    <!-- LOGO -->
+    <div class="logo-container">
+        <div class="header-bar"></div>              
+        <img src="/Vin/Project_CassavaChips - Final/image/Elenas_Cassava_Chips_Logo.png" class="Logo-main">
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="card-wrapper">
+        <div class="card">
+            <img src="/Vin/Project_CassavaChips - Final/image/bg-SourcreamFlavor.png" class="card-img">
+            <img src="/Vin/Project_CassavaChips - Final/image/logo-flavorsourcream.png" class="flavor-img">
+            <h1 class="flavor_name">Sour Cream</h1>
+            <p class="about">🥛 A snack you’ll fall in love with...</p>
+            <hr class="h_line">
+            <button class="btn" onclick="openModal('Sour Cream')">Click to Order</button>
+        </div>
+
+        <div class="card">
+            <img src="/Vin/Project_CassavaChips - Final/image/bg-CheeseFlavor.png" class="card-img">
+            <img src="/Vin/Project_CassavaChips - Final/image/logo-flavorcheese.png" class="flavor-img">
+            <h1 class="flavor_name">Cheese</h1>
+            <p class="about">🧀 Packed with creamy cheesy goodness...</p>
+            <hr class="h_line">
+            <button class="btn" onclick="openModal('Cheese')">Click to Order</button>
+        </div>
+
+        <div class="card">
+            <img src="/Vin/Project_CassavaChips - Final/image/bg-BBQFlavor.png" class="card-img">
+            <img src="/Vin/Project_CassavaChips - Final/image/logo-flavorbbq.png" class="flavor-img">
+            <h1 class="flavor_name">Barbeque</h1>
+            <p class="about">🔥 Smoky, bold, delicious...</p>
+            <hr class="h_line">
+            <button class="btn" onclick="openModal('BBQ')">Click to Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div id="checkoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2><i class="fas fa-info-circle"></i>  Details</h2>
+
+        <!-- CUSTOMER INFO -->
+        <div class="form-group">
+            <input type="text" id="cust_name" placeholder="Full Name">
+            <small class="error" id="nameError"></small>
+
+            <input type="text" id="cust_phone" placeholder="0912 345 6789" maxlength="13" inputmode="numeric">
+            <small class="error" id="phoneError"></small>
+
+            <input type="text" id="cust_address" placeholder="Delivery Address">
+            <small class="error" id="addressError"></small>
+        </div>
+
+         <p id="statusMessage" class="status-message"></p>
+
+        <!-- BUTTONS -->
+        <div class="modal-actions">
+            <button id="submitBtn" class="btn_checkout" onclick="checkoutMessenger()">
+                Order via Messenger
+            </button>
+                           
+        </div>
+            <a href="tel:9756158093" class="quick-call">
+                Quick Order :  &nbsp;<i class="fas fa-phone"></i>&nbsp;  0975 615 8093
+            </a>       
+    </div>
+</div>
+<!-- FLOATING BUTTON -->
+    <a class="floating-order-btn">
+        <i class="fab fa-facebook-messenger"></i> 
+        <span onclick="openModal('')">Order Now</span>
+    </a>
+
+<!-- FOOTER -->
+    <footer class="footer">
+        <p>Powered by: <span><a href="" class="Portpolio">VinTech</a></span> | @ 2026 All right reserved.</p>
+    </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+// INIT EMAILJS (run once)
+    (function(){ emailjs.init("YFeNYt1O4Ixw68zxW"); })();
+
+    let selectedItem = "";
+
+// OPEN MODAL
+    function openModal(flavor) {
+        selectedItem = flavor || "Not specified";
+        let statusMessage = document.getElementById("statusMessage");
+        // 🔄 RESET MESSAGE WHEN OPENING
+        statusMessage.classList.remove("show", "success", "error");
+        statusMessage.innerText = "";
+        document.getElementById("checkoutModal").style.display = "block";
+    }
+
+// CLOSE MODAL
+    function closeModal() {
+
+        let statusMessage = document.getElementById("statusMessage");
+
+        let name = document.getElementById("cust_name");
+        let phone = document.getElementById("cust_phone");
+        let address = document.getElementById("cust_address");
+
+        let nameError = document.getElementById("nameError");
+        let phoneError = document.getElementById("phoneError");
+        let addressError = document.getElementById("addressError");
+
+    // CLOSE MODAL
+        document.getElementById("checkoutModal").style.display = "none";
+
+    // CLEAR INPUT VALUES
+        name.value = "";
+        phone.value = "";
+        address.value = "";
+
+    // REMOVE STYLES
+        [name, phone, address].forEach(input => {
+            input.classList.remove("error-border", "success-border");
+        });
+
+    // CLEAR ERROR TEXT
+        nameError.innerText = "";
+        phoneError.innerText = "";
+        addressError.innerText = "";
+
+    // RESET STATUS MESSAGE
+        statusMessage.classList.remove("show", "success", "error");
+        statusMessage.innerText = "";
+
+    // RESET BUTTON (IMPORTANT)
+        let btn = document.getElementById("submitBtn");
+        btn.disabled = false;
+        btn.innerText = "Order via Messenger";
+    }
+
+// MAIN FUNCTION
+    function checkoutMessenger() {
+        
+        let name = document.getElementById("cust_name");
+        let phone = document.getElementById("cust_phone");
+        let address = document.getElementById("cust_address");
+
+        let nameError = document.getElementById("nameError");
+        let phoneError = document.getElementById("phoneError");
+        let addressError = document.getElementById("addressError");
+
+        let rawPhone = phone.value.replace(/\s/g, ""); // remove spaces
+
+        let statusMessage = document.getElementById("statusMessage");
+        let btn = document.getElementById("submitBtn");
+
+    // This ensures: old message won’t flash again
+        statusMessage.classList.remove("show", "success", "error");
+        statusMessage.innerText = "";
+
+        let valid = true;
+
+        // RESET MESSAGE
+        statusMessage.classList.remove("show", "success", "error");
+        statusMessage.innerText = "";
+
+        // RESET INPUT STYLES
+        [name, phone, address].forEach(input=>{
+            input.classList.remove("error-border","success-border");
+        });
+
+        // VALIDATION
+        if(name.value.trim() === ""){
+            name.classList.add("error-border");
+            valid = false;
+        } else {
+            name.classList.add("success-border");
+        }
+
+    if(!/^09\d{9}$/.test(rawPhone)){
+        phone.classList.add("error-border");
+        phoneError.innerText = "Enter valid number (0912 345 6789)";
+        valid = false;
+        } else {
+            phone.classList.add("success-border");
+        }
+
+        if(address.value.trim() === ""){
+            address.classList.add("error-border");
+            valid = false;
+        } else {
+            address.classList.add("success-border");
+        }
+
+        // ❌ INVALID
+        if(!valid){
+            statusMessage.innerText = "⚠ Please fill all fields correctly!";
+            statusMessage.classList.add("error","show");
+
+            setTimeout(()=>{
+                statusMessage.classList.remove("show");
+            },3000);
+
+            return;
+        }
+
+        // 🔒 DISABLE BUTTON
+        btn.disabled = true;
+        btn.innerText = "Processing...";
+
+        // 📩 EMAIL SEND
+        emailjs.send("service_h2v5w48", "template_xsppf29", {
+            flavor: selectedItem,
+            name: name.value,
+            phone: rawPhone, // Clean the number here...
+            address: address.value
+        })
+    .then(function(){
+
+        // ✅ SUCCESS MESSAGE
+        statusMessage.innerText = "✅ Order sent successfully!";
+        statusMessage.classList.add("success","show");
+
+        // CLEAR INPUTS
+        name.value = "";
+        phone.value = "";
+        address.value = "";
+
+        // 🔓 ENABLE BUTTON
+        btn.disabled = false;
+        btn.innerText = "Order via Messenger";
+
+        // ⏳ AUTO CLOSE MODAL (ADD HERE)
+        setTimeout(()=>{
+            closeModal();
+        }, 2500);
+
+        // AUTO HIDE
+        setTimeout(()=>{
+            statusMessage.classList.remove("show");
+            statusMessage.innerText = "";
+        },3000);
+
+    // 📲 OPEN MESSENGER
+        let message = `🛒 NEW ORDER\n\n` +
+                      `Flavor: ${selectedItem}\n\n` +
+                      `Name: ${name.value}\n` +
+                      `Phone: ${phone.value}\n` +
+                      `Address: ${address.value}`;
+
+        let page = 'marvin.gonzales.528';
+        let url = `https://m.me/${page}?ref=${encodeURIComponent(message)}`;
+
+        window.open(url, '_blank');
+
+    },  
+
+    function(error){
+
+        // ❌ ERROR MESSAGE
+        statusMessage.innerText = "❌ Failed to send. Try again.";
+        statusMessage.classList.add("error","show");
+
+        console.log(error);
+
+        // 🔓 ENABLE BUTTON
+        btn.disabled = false;
+        btn.innerText = "Order via Messenger";
+
+        // AUTO HIDE
+        setTimeout(()=>{
+            statusMessage.classList.remove("show");
+        },3000);
+        
+    });
+    }
+
+//Auto Format - cust_phone
+window.addEventListener("DOMContentLoaded", function(){
+    let phoneInput = document.getElementById("cust_phone");
+    if(phoneInput){
+        phoneInput.addEventListener("input", function(e){
+            let value = e.target.value.replace(/\D/g, "");
+            value = value.substring(0, 11);
+            let formatted = "";
+
+            if(value.length > 0){
+                formatted += value.substring(0, 4);
+            }
+            if(value.length >= 5){
+                formatted += " " + value.substring(4, 7);
+            }
+            if(value.length >= 8){
+                formatted += " " + value.substring(7, 11);
+            }
+
+            e.target.value = formatted;
+        });
+    }
+});
+</script>
+
+</body>
+</html>
