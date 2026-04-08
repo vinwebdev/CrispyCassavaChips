@@ -530,12 +530,19 @@ button:hover{
     width: 95%;
     margin: 10% auto;
   }
-
-    .floating-order-btn {   /* For Floating Order */
+.floating-order-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+}
+/*
+    .floating-order-btn {   /* For Floating Order 
         padding: 14px;
         border-radius: 50%;
         width: Auto;
     }
+*/
     .floating-order-btn span {
     display: inline-block;
 }
