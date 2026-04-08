@@ -530,11 +530,15 @@ button:hover{
     width: 95%;
     margin: 10% auto;
   }
-  .floating-order-btn {   /* For Floating Order */
+/*
+    .floating-order-btn {   /* For Floating Order 
         padding: 14px;
         border-radius: 50%;
     }
-
+*/
+    .floating-order-btn.show-text span {
+    display: inline-block;
+}
     .floating-order-btn span {
         display: none;
     }
