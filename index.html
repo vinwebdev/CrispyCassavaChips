@@ -26,7 +26,7 @@
         <div class="card">
             <img src="./image/bg-SourcreamFlavor.png" class="card-img">
             <img src="./image/logo-flavorsourcream.png" class="flavor-img">
-            <h1 class="flavor_name">Sour Cream</h1>
+            <h1 class="flavor_name">Sour Cream Flavor</h1>
             <p class="about">🥛 A snack you’ll fall in love with...</p>
             <hr class="h_line">
             <button class="btn" onclick="openModal('Sour Cream')">Click to Order</button>
@@ -35,7 +35,7 @@
         <div class="card">
             <img src="./image/bg-CheeseFlavor.png" class="card-img">
             <img src="./image/logo-flavorcheese.png" class="flavor-img">
-            <h1 class="flavor_name">Cheese</h1>
+            <h1 class="flavor_name">Cheese Flavor</h1>
             <p class="about">🧀 Packed with creamy cheesy goodness...</p>
             <hr class="h_line">
             <button class="btn" onclick="openModal('Cheese')">Click to Order</button>
@@ -44,7 +44,7 @@
         <div class="card">
             <img src="./image/bg-BBQFlavor.png" class="card-img">
             <img src="./image/logo-flavorbbq.png" class="flavor-img">
-            <h1 class="flavor_name">Barbeque</h1>
+            <h1 class="flavor_name">Barbeque Flavor</h1>
             <p class="about">🔥 Smoky, bold, delicious...</p>
             <hr class="h_line">
             <button class="btn" onclick="openModal('BBQ')">Click to Order</button>
@@ -292,7 +292,7 @@
         let url = `https://m.me/${page}?ref=${encodeURIComponent(message)}`;
 
         //window.open(url, '_blank');
-        window.location.href = url;
+        window.location.href = url; //same tab → ✅ NEVER blocked on iPhone
 
     },  
 
