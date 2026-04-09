@@ -281,16 +281,18 @@
         },3000);
 
     // 📲 OPEN MESSENGER
-        let message = `🛒 NEW ORDER\n\n` +
-                      `Flavor: ${selectedItem}\n\n` +
-                      `Name: ${name.value}\n` +
-                      `Phone: ${phone.value}\n` +
-                      `Address: ${address.value}`;
+    // SEND TO MESSENGER (FIXED)
+        let message = `🛒 *NEW ORDER* 🛒\n\n`;
+            message += `📦 Flavor: ${selectedItem}\n\n`;
+            message += `👤 Name: ${name.value}\n`;
+            message += `📞 Phone: ${phone.value}\n`;
+            message += `🏠 Address: ${address.value}\n`;                  
 
         let page = 'marvin.gonzales.528';
         let url = `https://m.me/${page}?ref=${encodeURIComponent(message)}`;
 
-        window.open(url, '_blank');
+        //window.open(url, '_blank');
+        window.location.href = url;
 
     },  
 
